@@ -25,8 +25,12 @@
         // Log the resulting object
         console.log(response);
 
+        //Variables
+        var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon +".png";
+
         // Transfer content to HTML
         $(".city").html(response.name);
+        $(".icon").attr("src", icon);
         $(".tempF").html("Temperature:" + response.tempF.toFixed(2));
         $(".humidity").text("Humidity: " + response.main.humidity);
         $(".wind").text("Wind Speed: " + response.wind.speed);
@@ -37,4 +41,18 @@
         console.log("Humidity: " + response.main.humidity);
         console.log("Wind Speed: " + response.wind.speed);
         console.log("UV Index: " + response.uvi);
+
+        //UVI changes colors on conditions
+        var uvi = response.uvi;
+
+        if (uvi >= 10){
+            color= "red";
+        }
+        else if (uvi > 4){
+            color= "yellow";
+        }
+        else if  (uvi <= 4){
+            color= "green";
+        };
+
       });
