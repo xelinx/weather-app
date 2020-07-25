@@ -30,9 +30,9 @@
       method: "GET",
     })
       // We store all of the retrieved data inside of an object called "response"
-      .then(function(response) {
-        let lat = response.coord.lat;
-        let lon = response.coord.lon;
+      .then(function(locResponse) {
+        let lat = locResponse.coord.lat;
+        let lon = locResponse.coord.lon;
 
       // Here we are building the URL we need to query the database
       var queryURL = "api.openweathermap.org/data/2.5/onecall?" + lat + "&lon=" + lon + "&exclude=hourly&units=imperial&appid=" +
@@ -61,7 +61,7 @@
           cityName.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
 
           //Variables
-          var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon +".png";
+          var icon = response.data.weather[0].icon;
           var temp = response.current.temp;
           var humidity = response.current.humidity;
           var wind = response.current.wind_speed;
@@ -69,7 +69,7 @@
 
           // Transfer content to HTML
           $(".city").append(cityName);
-          $(".icon").attr("src", icon);
+          $(".icon").attr("src", "http://openweathermap.org/img/w/" + icon + "@2x.png");
           $(".tempF").text(temp.toFixed(2) + "ºF");
           $(".humidity").text(humidity + "%");
           $(".wind").text(wind + "mph");
@@ -118,7 +118,7 @@
                 //Icon
                 var forecastWeather = document.createElement("img");
                 forecastWeather.setAttribute("src","https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
-                forecastWeather.setAttribute("alt",response.data.list[forecastIndex].weather[0].description);
+                forecastWeather.setAttribute("alt",response.data.list[forecastIndex].daily.weather[0].description);
                 forecast[i].append(forecastWeather);
                 
                 //Temperature
