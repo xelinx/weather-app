@@ -51,23 +51,20 @@
 
             //Variables
             var icon = "http://openweathermap.org/img/w/" + data.weather[0].icon +".png";
+            var temp = response.current.temp;
+            var humidity = response.current.humidity;
+            var wind = response.current.wind_speed;
+            var uvi = response.current.uvi;
 
             // Transfer content to HTML
-            $(".city").html(response.name);
+            $(".city").html(cityName;
             $(".icon").attr("src", icon);
-            $(".tempF").html("Temperature:" + response.current.temp.toFixed(2) + "ºF");
-            $(".humidity").text("Humidity: " + response.current.humidity);
-            $(".wind").text("Wind Speed: " + response.current.wind.speed);
-            $(".UV").text("UV Index: " + response.current.uvi);
-
-            // Log the data in the console as well
-            console.log("Temperature (F): " + current.temp);
-            console.log("Humidity: " + response.current.humidity);
-            console.log("Wind Speed: " + response.current.wind.speed);
-            console.log("UV Index: " + response.current.uvi);
+            $(".tempF").text("Temperature:" + temp.toFixed(2) + "ºF");
+            $(".humidity").text("Humidity: " + humidity);
+            $(".wind").text("Wind Speed: " + wind);
+            $(".UV").text("UV Index: " + uvI);
 
             //UVI changes colors on conditions
-            var uvi = response.current.uvi;
 
             if (uvi >= 10){
                 color= "red";
@@ -82,4 +79,3 @@
       });
     })};
 
-    
