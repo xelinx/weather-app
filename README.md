@@ -1,6 +1,8 @@
 # weather-app
 
+To design a weather Dashboard that displays the current weather and 5-day forecast for a city the user inputs into the search box. The search is saved and . UV Index changes color depending on weather conditions.
 
+I had a lot of trouble with the weather app. Setting up HTML was relatively easy. Setting up search history was also ok. However, I had trouble appending my weather data to the page. 
 
 ## Screenshots of the Deployed Website
 
@@ -32,5 +34,7 @@ OpenWeather Current https://openweathermap.org/current
 OpenWeather One Call https://openweathermap.org/api/one-call-api
 
 Local Storage https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+
+Date Object https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 - - -
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
