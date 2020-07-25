@@ -1,5 +1,5 @@
     //Variable for city
-    //var cityName = document.getElementById("cityName");
+    var cityName = document.getElementById("cityName");
 
     //Array for history of search
     var cities = [];
@@ -7,7 +7,15 @@
     // This is our API key, latitude, and longitude
     var APIKey = "4329b9a304464e3aaf6df7df53ecd8b3";
 
-    function getWeather(lat, lon) {
+    cities.forEach(function (city, index, originalArr) {
+      renderButtons(city);
+  
+      if (index === originalArr.length - 1) {
+          getWeather(city);
+      }
+    })
+
+    function getWeather(city) {
 
       //get latitude and longitude
       var locURL = "api.openweathermap.org/data/2.5/weather?q=" + cityName + "&units=imperial&appid=" +
