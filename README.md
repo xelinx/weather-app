@@ -27,7 +27,9 @@ HTML Semantic Elements https://www.w3schools.com/html/html5_semantic_elements.as
 
 jQuery API https://api.jquery.com/
 
-moments.js https://momentjs.com/
+OpenWeather Current https://openweathermap.org/current
+
+OpenWeather One Call https://openweathermap.org/api/one-call-api
 
 Local Storage https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 - - -
