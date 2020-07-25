@@ -2,10 +2,10 @@
 
 To design a weather Dashboard that displays the current weather and 5-day forecast for a city the user inputs into the search box. The search is saved and . UV Index changes color depending on weather conditions.
 
-I had a lot of trouble with the weather app. Setting up HTML was relatively easy. Setting up search history was also ok. However, I had trouble appending my weather data to the page. 
+I had a lot of trouble with the weather app. Setting up HTML was relatively easy. Setting up search history was also ok. However, I had trouble appending my weather data to the page. I keep getting a CORS policy error, and I can't figure out how to fix it. The query URLs are correct, and going to the URL shows me the information I need.
 
 ## Screenshots of the Deployed Website
-
+![Screen Shot 2020-07-25 at 3 22 45 AM](https://user-images.githubusercontent.com/66236313/88454703-2ef35700-ce26-11ea-9e66-4159e7a5daf0.png)
 
 ## Review
 
