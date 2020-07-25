@@ -31,7 +31,7 @@
         // Transfer content to HTML
         $(".city").html(response.name);
         $(".icon").attr("src", icon);
-        $(".tempF").html("Temperature:" + response.tempF.toFixed(2));
+        $(".tempF").html("Temperature:" + response.tempF.toFixed(2) + "ºF");
         $(".humidity").text("Humidity: " + response.main.humidity);
         $(".wind").text("Wind Speed: " + response.wind.speed);
         $(".UV").text("UV Index: " + response.uvi);
