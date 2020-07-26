@@ -32,29 +32,29 @@
             console.log(response);
 
             //Date Display
-            var currentDate = new Date(response.data.dt*1000);
+            var currentDate = new Date(response.dt*1000);
             console.log(currentDate);
             var day = currentDate.getDate();
             var month = currentDate.getMonth() + 1;
             var year = currentDate.getFullYear();
-            cityName.innerHTML = response.data.name + " (" + month + "/" + day + "/" + year + ") ";
+            city.innerHTML = response.name + " (" + month + "/" + day + "/" + year + ") ";
 
             //Variables
-            var icon = response.data.weather[0].icon;
+            var icon = response.weather[0].icon;
             var temp = response.main.temp;
             var humidity = response.main.humidity;
             var wind = response.wind.speed;
 
             // Transfer content to HTML
-            $(".city").append(cityName);
+            //$(".city").append(cityName);
             $(".icon").attr("src", "http://openweathermap.org/img/w/" + icon + "@2x.png");
             $(".tempF").text(temp.toFixed(2) + "ºF");
             $(".humidity").text(humidity + "%");
             $(".wind").text(wind + "mph");
 
             //Define lat/lon
-            let lat = response.data.coord.lat;
-            let lon = response.data.coord.lon;
+            let lat = response.coord.lat;
+            let lon = response.coord.lon;
 
             //Get UV
             let UVQueryURL = "https://api.openweathermap.org/data/2.5/uvi/forecast?lat=" + lat + "&lon=" + lon + "&appid=" + APIKey + "&cnt=1";
@@ -65,7 +65,7 @@
             .then(function(response){
                 let UVIndex = "";
                 UVIndex.setAttribute("class","badge badge-danger");
-                UVIndex.innerHTML = response.data[0].value;
+                UVIndex.innerHTML = response.value;
                 $(".UV").append(UVIndex);
 
               //UVI changes colors on conditions
@@ -98,7 +98,7 @@
               for (i=0; i<forecast.length; i++) {
                   forecast[i].innerHTML = "";
                   var forecastIndex = i*8 + 4;
-                  var forecastDate = new Date(response.data.list[forecastIndex].dt * 1000);
+                  var forecastDate = new Date(response.list[forecastIndex].dt * 1000);
                   var forecastDay = forecastDate.getDate();
                   var forecastMonth = forecastDate.getMonth() + 1;
                   var forecastYear = forecastDate.getFullYear();
@@ -111,18 +111,18 @@
                   
                   //Icon
                   var forecastWeather = document.createElement("img");
-                  forecastWeather.setAttribute("src","https://openweathermap.org/img/wn/" + response.data.list[forecastIndex].weather[0].icon + "@2x.png");
-                  forecastWeather.setAttribute("alt",response.data.list[forecastIndex].daily.weather[0].description);
+                  forecastWeather.setAttribute("src","https://openweathermap.org/img/wn/" + response.list[forecastIndex].weather[0].icon + "@2x.png");
+                  forecastWeather.setAttribute("alt",response.list[forecastIndex].daily.weather[0].description);
                   forecast[i].append(forecastWeather);
                   
                   //Temperature
                   var forecastTemp = document.createElement("p");
-                  forecastTemp.innerHTML = "Temp: " + response.data.list[forecastIndex].daily.temp + " ºF";
+                  forecastTemp.innerHTML = "Temp: " + response.list[forecastIndex].daily.temp + " ºF";
                   forecast[i].append(forecastTemp);
 
                   //Humidity
                   var forecastHumidity = document.createElement("p");
-                  forecastHumidity.innerHTML = "Humidity: " + response.data.list[forecastIndex].daily.humidity + "%";
+                  forecastHumidity.innerHTML = "Humidity: " + response.list[forecastIndex].daily.humidity + "%";
                   forecast[i].append(forecastHumidity);
               }
             });
