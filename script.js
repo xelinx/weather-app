@@ -106,6 +106,7 @@ searchBtn.addEventListener("click", function () {
 
 //Search History Function
 var searchHistory = JSON.parse(localStorage.getItem("search")) || [];
+console.log(searchHistory);
 
 function renderSearchHistory() {
   var history = document.getElementById("history");
@@ -124,13 +125,11 @@ function renderSearchHistory() {
   }
 }
 
-renderSearchHistory();
 if (searchHistory.length > 0) {
   getWeather(searchHistory[searchHistory.length - 1]);
 }
 
 //Clear History Function
-
 clearBtn.addEventListener("click", function () {
   searchHistory = [];
   renderSearchHistory();
